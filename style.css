@@ -1,4 +1,4 @@
-root {
+:root {
     --text-color: #DBE4EF;
     --card-front-color: #144480;
     --card-back-color: #00F4BF;
@@ -11,6 +11,10 @@ body {
 
 #container {
     display: flex; /* Elementos dispostos em linha */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
 }
 
 .cartao {
@@ -43,6 +47,7 @@ body {
 .cartao__conteudo p {
     margin-top: 1rem;
     padding: 2rem;
+    margin-top: 4rem;
 }
 
 .cartao__conteudo__pergunta p {
@@ -68,7 +73,6 @@ body {
 .cartao__conteudo__resposta {
     transform: rotateY(180deg);
 }
-
 
 
 
