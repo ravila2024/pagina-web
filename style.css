@@ -1,104 +1,127 @@
 :root {
-    --text-color: #DBE4EF;
-    --card-front-color: #144480;
-    --card-back-color: #00F4BF;
+    --primary-color: #007BFF;
+    --secondary-color: #28a745;
+    --background-color: #f4f7f6;
+    --text-color: #333;
+    --correct-color: #28a745;
+    --wrong-color: #dc3545;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background: url('img/bg-desktop.webp');
-    font-family: Bai Jamjuree;
-}
-
-#container {
-    display: flex; /* Elementos dispostos em linha */
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 4rem;
-    gap: 3rem;
-}
-
-.cartao {
-    margin: 1rem 1rem;
-    height: 20rem;
-    flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
-}
-
-.cartao__conteudo {
-    background-color: var(--card-front-color);
-    text-align: center;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 300ms ease-in-out;
-}
-
-.cartao__conteudo h3 {
+    background-color: var(--background-color);
     color: var(--text-color);
-    border: 1px solid var(--text-color);
-    text-align: left;
-    padding: 0.5rem;
-    position: absolute;
-    margin: 0.6rem;
-    border-radius: 0.6rem;
-    font-size: 1vw;
-    backface-visibility: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.cartao__conteudo p {
-    margin-top: 1rem;
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-.cartao__conteudo__pergunta p {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.cartao__conteudo__resposta p {
-    color: var(--card-back-color);
-    font-weight: 700;
-}
-.cartao:hover .cartao__conteudo {
-    transform: rotateY(180deg);
-}
-.cartao__conteudo__pergunta,
-.cartao__conteudo__resposta {
-    backface-visibility: hidden;
-    position: absolute;
-    height: 100%;
+.header {
     width: 100%;
-}
-
-.cartao__conteudo__resposta {
-    transform: rotateY(180deg);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer {
-    background-color: black;
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--primary-color);
     color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-footer p {
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-box h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn:hover:not([disabled]) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Estilos para o feedback de resposta */
+.btn.correct {
+    background-color: var(--correct-color);
+    color: white;
+    border-color: var(--correct-color);
+}
+
+.btn.wrong {
+    background-color: var(--wrong-color);
+    color: white;
+    border-color: var(--wrong-color);
+}
+
+/* Botão "Próxima Pergunta" */
+.next-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.next-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Classes de utilidade para esconder elementos */
+.hide {
+    display: none;
+}
+
+.btn[disabled] {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#score-area {
     text-align: center;
-    font-size: 0.6rem;
-    margin-top: 0.5rem;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    padding-top: 20px;
+}
+
+#final-score {
+    font-weight: bold;
+    color: var(--primary-color);
 }
